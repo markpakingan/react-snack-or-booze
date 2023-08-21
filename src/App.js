@@ -17,6 +17,10 @@ function App() {
 
   const [drinks, setDrinks] = useState([]);
 
+  const addSnack = (newSnack) => {
+    setSnacks((prevSnacks)=>[...prevSnacks, newSnack])
+  }
+
   useEffect(() => {
     async function getSnacks() {
       let snacks = await SnackOrBoozeApi.getSnacks();
@@ -66,7 +70,7 @@ function App() {
             </Route>
             
             <Route exact path="/add-product">
-              <AddProductForm />
+              <AddProductForm onAddSnack={addSnack}/>
             </Route>
         
 

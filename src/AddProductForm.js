@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import { Button } from "reactstrap";
+import axios from "axios";
 
 
-const AddProductForm= () => {
+const AddProductForm= ({onAddSnack}) => {
 
 
     const INITIAL_STATE = {
@@ -18,19 +19,29 @@ const AddProductForm= () => {
         setFormData(formData => ({
             ...formData, 
             [name]: value
-        }))
+        }));
+
+        
     }
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         alert(`The productname is ${formData.name} the category is ${formData.category}`)
+
+        const newSnack = {
+            name: formData.name,
+            category: formData.category
+        };
+
+        onAddSnack(newSnack);
+        setFormData(INITIAL_STATE);
     }
     
 
     return(
-        <form>
-            <label htmlFor="product-name">Product Name:</label>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="product-name"></label>
             <input 
             id="product-name"
             name="name"
@@ -40,16 +51,20 @@ const AddProductForm= () => {
             onChange={handleChange}/>
             
             <label htmlFor="category-name"></label>
-            <input 
+            <select
             id="category-name"
             name="category"
-            type="text" 
             placeholder="Add Category Name" 
             value={formData.category} 
-            onChange={handleChange}/>
+            onChange={handleChange}>
+
+                <option value="snacks">Snacks</option>
+                <option value="drinks">Drinks</option>
+
+            </select>
 
 
-            <Button onClick={handleSubmit}>Add Product</Button>
+            <Button>Add Product</Button>
         </form>
 
 
