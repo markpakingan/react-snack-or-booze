@@ -23,6 +23,12 @@ function NavBar() {
           </NavItem>
         </Nav>
 
+        <Nav>
+          <NavItem>
+            <NavLink to="/add-product">Add Product</NavLink>
+          </NavItem>
+        </Nav>
+
       </Navbar>
 
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FoodMenu.css";
 import {
@@ -11,6 +11,9 @@ import {
 } from "reactstrap";
 
 function FoodMenu({ snacks }) {
+
+  const snackCount = snacks.length;
+
   return (
     <section className="col-md-4">
       <Card>
@@ -31,6 +34,10 @@ function FoodMenu({ snacks }) {
           </ListGroup>
         </CardBody>
       </Card>
+            
+      <p>Total Snacks: {snackCount}</p>
+      {console.log("here's the snack count", snackCount)}
+
     </section>
   );
 }

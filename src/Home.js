@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-function Home() {
+function Home({snackCount, drinkCount}) {
   return (
     <section className="col-md-8">
       <Card>
@@ -10,6 +10,11 @@ function Home() {
             <h3 className="font-weight-bold">
               Welcome to Silicon Valley's premier dive cafe!
             </h3>
+
+            <h4>Snacks: {snackCount}</h4>
+
+            <h4>Drinks: {drinkCount}</h4>
+
           </CardTitle>
         </CardBody>
       </Card>

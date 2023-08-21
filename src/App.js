@@ -9,6 +9,7 @@ import Menu from "./FoodMenu";
 import DrinkMenu from "./DrinkMenu";
 import Snack from "./FoodItem";
 import Drink from "./DrinkItem"
+import AddProductForm from "./AddProductForm";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,8 +47,9 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              <Home snacks={snacks} />
+              <Home snacks={snacks} snackCount={snacks.length} drinkCount={drinks.length}/>
             </Route>
+
             <Route exact path="/snacks">
               <Menu snacks={snacks} title="Snacks" />
             </Route>
@@ -55,10 +57,18 @@ function App() {
               <Snack items={snacks} cantFind="/snacks" />
             </Route>
 
-            
             <Route exact path="/drinks">
-              <Drink items={drinks}/>
+              <DrinkMenu drinks={drinks} title="Drinks"/>
             </Route>
+
+            <Route exact path="/drinks/:id">
+              <Drink items = {drinks} />
+            </Route>
+            
+            <Route exact path="/add-product">
+              <AddProductForm />
+            </Route>
+        
 
 
             <Route>

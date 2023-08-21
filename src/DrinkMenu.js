@@ -12,6 +12,9 @@ import {
 
 
 const DrinkMenu = ({drinks}) => {
+
+    const drinkCount = drinks.length;
+
     return(
         <section className="col-md-4">
         <Card>
@@ -32,9 +35,11 @@ const DrinkMenu = ({drinks}) => {
             </ListGroup>
           </CardBody>
         </Card>
+
+        <p>Total Drinks: {drinkCount}</p>
       </section>
-  
     )
 }
+
 
 export default DrinkMenu;
