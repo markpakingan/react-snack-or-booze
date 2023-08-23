@@ -36,7 +36,6 @@ const DrinkMenu = ({drinks}) => {
           </CardBody>
         </Card>
 
-        <p>Total Drinks: {drinkCount}</p>
       </section>
     )
 }

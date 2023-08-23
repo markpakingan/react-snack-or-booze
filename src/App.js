@@ -17,8 +17,12 @@ function App() {
 
   const [drinks, setDrinks] = useState([]);
 
-  const addSnack = (newSnack) => {
-    setSnacks((prevSnacks)=>[...prevSnacks, newSnack])
+  const addSnack = (newProduct) => {
+    setSnacks((prevSnacks)=>[...prevSnacks, newProduct])
+  }
+
+  const addDrink = (newProduct) => {
+    setDrinks((prevDrinks)=>[...prevDrinks, newProduct])
   }
 
   useEffect(() => {
@@ -70,7 +74,7 @@ function App() {
             </Route>
             
             <Route exact path="/add-product">
-              <AddProductForm onAddSnack={addSnack}/>
+              <AddProductForm onAddSnack={addSnack} onAddDrink={addDrink}/>
             </Route>
         
 

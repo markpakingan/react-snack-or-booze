@@ -1,0 +1,18 @@
+/* Set the width for both input and select elements */
+input[type="text"],
+select {
+  width: 80%; /* Adjust the width as needed */
+}
+
+/* Optionally, adjust padding and margin for better alignment */
+input[type="text"],
+select {
+  padding: 10px; /* Adjust padding as needed */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+
+.add-product-button {
+    
+    background-color: rgb(4, 80, 49);
+}

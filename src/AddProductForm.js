@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import { Button } from "reactstrap";
 import axios from "axios";
+import "./addProductForm.css"
 
 
-const AddProductForm= ({onAddSnack}) => {
+const AddProductForm= ({onAddSnack, onAddDrink}) => {
 
 
     const INITIAL_STATE = {
@@ -27,14 +28,20 @@ const AddProductForm= ({onAddSnack}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`The productname is ${formData.name} the category is ${formData.category}`)
 
-        const newSnack = {
+        const newProduct = {
             name: formData.name,
             category: formData.category
         };
 
-        onAddSnack(newSnack);
+        
+        if(formData.category === "snacks")
+         {
+            onAddSnack(newProduct) 
+        } else {
+            onAddDrink(newProduct)
+        }
+
         setFormData(INITIAL_STATE);
     }
     
@@ -58,13 +65,13 @@ const AddProductForm= ({onAddSnack}) => {
             value={formData.category} 
             onChange={handleChange}>
 
-                <option value="snacks">Snacks</option>
-                <option value="drinks">Drinks</option>
+                <option value="snacks" className="dropdown">snacks</option>
+                <option value="drinks" className="dropdown">drinks</option>
 
             </select>
 
 
-            <Button>Add Product</Button>
+            <Button className="add-product-button">Add Product</Button>
         </form>
 
 

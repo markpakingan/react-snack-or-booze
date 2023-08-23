@@ -35,8 +35,6 @@ function FoodMenu({ snacks }) {
         </CardBody>
       </Card>
             
-      <p>Total Snacks: {snackCount}</p>
-      {console.log("here's the snack count", snackCount)}
 
     </section>
   );

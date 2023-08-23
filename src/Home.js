@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
+import "./home.css"
 
 function Home({snackCount, drinkCount}) {
   return (
     <section className="col-md-8">
-      <Card>
+      <Card className="card-box">
         <CardBody className="text-center">
           <CardTitle>
             <h3 className="font-weight-bold">
